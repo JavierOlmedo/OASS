@@ -27,5 +27,4 @@ python3 oass.py
 EOF
 ```
 
-
 > *Made with ❤️ in Spain*
