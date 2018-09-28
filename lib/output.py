@@ -14,3 +14,6 @@ def warning(s):
 
 def error(s):
     print(Colors.BOLD + Colors.RED + t() + " [-] " + s + Colors.DEFAULT)
+
+def default(s):
+    print(Colors.BOLD + t() + " [+] " + s + Colors.DEFAULT)

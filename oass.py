@@ -5,4 +5,4 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        error("User aborted session")
+        error("User aborted session" + "\n")
