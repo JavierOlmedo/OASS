@@ -13,18 +13,14 @@
   </b>  
 </p>
 
-# Installation
+# USE
 
-Install OASS is very simple, you can follow the below method:
+Use OASS is very simple, you can follow the below method:
 
 ```
-sudo -s << EOF
 git clone https://github.com/JavierOlmedo/OASS.git
 cd OASS
-chmod +x install.sh
-./install.sh
 python3 oass.py
-EOF
 ```
 
 > *Made with ❤️ in Spain*

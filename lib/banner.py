@@ -15,10 +15,10 @@ def banner():
                             \/         \/        \/        \/     
                                                               v""" + VERSION + """
                                                                        
-                ============ [OWASP Automatic Scan Script] ===========
+                ============ [OWASP Automatic Scan Script] ============
                                Made with ❤️  in Spain                          
                        
-                ======= Javier Olmedo - https://hackpuntes.com =======
+                ======= Javier Olmedo - https://hackpuntes.com ========
                 [*] Facebook: https://facebook.com/hackpuntes       [*]
                 [*] Twitter:  https://twitter.com/jjavierolmedo     [*]
                 [*] LinkedIn: https://linkedin.com/in/jjavierolmedo [*]

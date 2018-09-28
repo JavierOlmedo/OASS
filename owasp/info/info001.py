@@ -6,8 +6,7 @@ import os
 def hunterio():
     default("Find emails in Hunter.io")
     emails = []
-    url = "https://api.hunter.io/v2/domain-search?domain=hackpuntes.com&api_key=81cce40b71b506fa245b1e213a96d3b22171d05c"
-    print("hasta")
+    url = "https://api.hunter.io/v2/domain-search?domain=" + dominio +"&api_key=" + API
     try:
         r = requests.get(url)
         rdata = r.json()
@@ -24,7 +23,7 @@ def hunterio():
 
 def theharvester():
     default("Launch command in TheHarvester")
-    c = 'theharvester -d hackpuntes.com -b all'
+    c = "theharvester -d " + domain +" -b all"
     os.system(c)
 
 
