@@ -3,23 +3,23 @@ import requests
 import re
 import os
 
+domain = ""
+API = ""
+
 def hunterio():
     default("Find emails in Hunter.io")
     emails = []
-    url = "https://api.hunter.io/v2/domain-search?domain=" + dominio +"&api_key=" + API
-    try:
-        r = requests.get(url)
-        rdata = r.json()
-        resultados = rdata['meta']['results']
-        if (resultados >= 1):
-            success(str(resultados) + " emails found!! from domain " + domain)
-            emails = rdata['data']['emails']
-        else:
-            error(str(resultados) + " emails found!!")
-        for mail in emails:
-            success(mail['value'])
-    except:
-        error("Error de API")
+    url = "https://api.hunter.io/v2/domain-search?domain=" + domain +"&api_key=" + API
+    
+    r = requests.get(url)
+    rdata = r.json()
+    resultados = rdata['meta']['results']
+    if (resultados >= 1):
+        emails = rdata['data']['emails']
+    else:
+        error(str(resultados) + " emails found!!")
+    for mail in emails:
+        success(mail['value'])
 
 def theharvester():
     default("Launch command in TheHarvester")
