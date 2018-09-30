@@ -35,11 +35,11 @@ def banner():
 def usage():
 	print(Colors.BOLD + """
 	EXAMPLE:
-		-u [REQUIRED] Specify the URL of target
-		python3 oass.py [PATH]
+		-u [REQUIRED] Target URL
+		python3 oass.py -u [PATH]
         
 		-o [OPTIONAL] Output folder
-		python3 oass.py [PATH] -o [OUTPUT]
+		python3 oass.py -u [PATH] -o [OUTPUT]
 	""" + Colors.DEFAULT)
 
 def t():
