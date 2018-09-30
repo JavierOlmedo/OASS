@@ -1,7 +1,13 @@
-import os
+#!/usr/bin/python3
+
 from lib.colors import Colors
+import time
+import sys
+import os
 
 VERSION = "1.0"
+
+
 
 def banner():
     os.system("clear")
@@ -25,3 +31,33 @@ def banner():
                 [*] GitHub:   https://github.com/JavierOlmedo       [*]
                 =======================================================
     """ + Colors.DEFAULT)
+
+def usage():
+	print(Colors.BOLD + """
+	EXAMPLE:
+		-u [REQUIRED] Specify the URL of target
+		python3 oass.py [PATH]
+        
+		-o [OPTIONAL] Output folder
+		python3 oass.py [PATH] -o [OUTPUT]
+	""" + Colors.DEFAULT)
+
+def t():
+	current_time = time.localtime()
+	ctime = time.strftime('%H:%M:%S', current_time)
+	return "["+ ctime + "]"
+
+def success(s):
+    print(Colors.BOLD + Colors.GREEN + t() + " [+] " + s + Colors.DEFAULT)
+
+def info(s):
+    print(Colors.BOLD + Colors.BLUE + t() + " [!] " + s + Colors.DEFAULT)
+
+def warning(s):
+    print(Colors.BOLD + Colors.YELLOW + t() + " [!] " + s + Colors.DEFAULT)
+
+def error(s):
+    print(Colors.BOLD + Colors.RED + t() + " [-] " + s + Colors.DEFAULT)
+
+def default(s):
+    print(Colors.BOLD + t() + " [+] " + s + Colors.DEFAULT)
