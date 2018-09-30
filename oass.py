@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from lib.functions import *
+from owasp import info
 import sys
 
 def main():
@@ -18,6 +19,7 @@ def main():
             else:
                 target = sys.argv[2]
                 success("TARGET " + target + "\n")
+                info.main()
 
 if __name__ == "__main__":
     try:
