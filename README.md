@@ -22,6 +22,6 @@ python3 oass.py
 
 ## Screenshot
 
-![banner](https://raw.githubusercontent.com/JavierOlmedo/OASS/master/img/owasp-banner.png)
+![banner](https://raw.githubusercontent.com/JavierOlmedo/OASS/master/img/oass-banner.png)
 
 > *Made with ❤️ in Spain*
