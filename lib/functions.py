@@ -3,11 +3,10 @@
 from lib.colors import Colors
 import time
 import sys
+import re
 import os
 
 VERSION = "1.0"
-
-
 
 def banner():
     os.system("clear")
@@ -47,6 +46,13 @@ def t():
 	ctime = time.strftime('%H:%M:%S', current_time)
 	return "["+ ctime + "]"
 
+def isValidDomain(s):
+    match = re.search("^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$", s)
+    if match:
+        return True
+    else:
+        return False
+
 def success(s):
     print(Colors.BOLD + Colors.GREEN + t() + " [+] " + s + Colors.DEFAULT)
 
@@ -61,3 +67,4 @@ def error(s):
 
 def default(s):
     print(Colors.BOLD + t() + " [+] " + s + Colors.DEFAULT)
+

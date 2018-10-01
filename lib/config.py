@@ -1,6 +1,0 @@
-
-TARGET = ""
-OUTPUT = ""
-HUNTERAPI = ""
-SHODANAPI = ""
-CENSYSAPI = ""

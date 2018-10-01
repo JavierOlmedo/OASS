@@ -2,9 +2,12 @@
 
 from lib.functions import *
 from owasp import info
+import lib.globals
+import socket
 import sys
 
 def main():
+    lib.globals.initialize()
     banner()
     usage()
 
@@ -18,8 +21,18 @@ def main():
                 error("URL not valid" + "\n")
             else:
                 target = sys.argv[2]
-                success("TARGET " + target + "\n")
-                info.main()
+
+                if(isValidDomain(target)):
+                    lib.globals.TARGET = target
+                    try:
+                        lib.globals.IP = socket.gethostbyname(target)
+                    except:
+                        error("No IP from " + lib.globals.TARGET)
+                    success("TARGET " + target + " (" + lib.globals.IP + ")" + "\n")
+                    
+                    info.main()
+                else:
+                    error(target + " is not a valid domain" + "\n")
 
 if __name__ == "__main__":
     try:

@@ -4,11 +4,11 @@
 
 # OWASP Automatic Scan Script
 
-> 👨🏿‍💻 A simple tool to check OWASP test from your website.
+> A simple tool to check OWASP test from your website.
 
 ## Info
 
-⚠️ This project is under development ⚠️
+⚠️ This project does not have realease version ⚠️
 
 ## Use
 
@@ -17,11 +17,7 @@ Use OASS is very simple, you can follow the below method:
 ```
 git clone https://github.com/JavierOlmedo/OASS.git
 cd OASS
-python3 oass.py
+python3 oass.py -u [TARGET]
 ```
-
-## Screenshot
-
-![banner](https://raw.githubusercontent.com/JavierOlmedo/OASS/master/img/oass-banner.png)
 
 > *Made with ❤️ in Spain*

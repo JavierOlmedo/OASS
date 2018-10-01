@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from lib.functions import *
+import lib.globals
 import requests
 import sys
 import re
@@ -8,40 +9,58 @@ import os
 
 def info001():
     info("INFO-001 Conduct search engine discovery/reconnaissance for information leakage")
-    domain = "hackpuntes.com"
-    API = "81cce40b71b506fa245b1e213a96d3b22171d05c"
 
     def hunterio():
         default("Find emails in Hunter.io")
         emails = []
-        url = "https://api.hunter.io/v2/domain-search?domain=" + domain +"&api_key=" + API
+        url = "https://api.hunter.io/v2/domain-search?domain=" + lib.globals.TARGET +"&api_key=" + lib.globals.HUNTERAPI
 
-        r = requests.get(url)
-        rdata = r.json()
-        resultados = rdata['meta']['results']
-        if (resultados >= 1):
-            emails = rdata['data']['emails']
-        else:
-            error(str(resultados) + " emails found!!")
-        for mail in emails:
-            success(mail['value'])
+        try:
+            r = requests.get(url)
+            rdata = r.json()
+            resultados = rdata['meta']['results']
+            if (resultados >= 1):
+                emails = rdata['data']['emails']
+            else:
+                error(str(resultados) + " emails found!!")
+            for mail in emails:
+                success(mail['value'])
+        except:
+            error("Error in Hunter.io API")
 
     def theharvester():
         default("Launch command in TheHarvester")
-        c = "theharvester -d " + domain +" -b all"
-        os.system(c)
+        c = "theharvester -d " + lib.globals.TARGET + " -b all"
+        try:
+            os.system(c)
+        except:
+            error("Error in theHarvester command")
+
+    def sublist3r():
+        default("Launch command in Sublist3r")
+        c = "cd /root/Herramientas/Sublist3r &&python sublist3r.py -d " + lib.globals.TARGET +""
+        try:
+            os.system(c)
+        except:
+            error("Error Sublist3r command")
 
     hunterio()
     theharvester()
-
+    sublist3r()
     print("\n")
 
 def info002():
     info("INFO-002 Fingerprint Web Server")
 
-    def wappalyzer():
-        default("Fingerprint with Wappalyzer API")
+    def whatweb():
+        default("Launch command in WhatWeb")
+        c = "whatweb " + lib.globals.TARGET + ""
+        try:
+            os.system(c)
+        except:
+            error("Error in WhatWeb command")
 
+    whatweb()
     print("\n")
     
 def info003():
@@ -76,7 +95,6 @@ def info010():
     info("INFO-010 Map Application Architecture")
     print("\n")
 
-
 def main():
     info001()
     info002()
@@ -88,8 +106,6 @@ def main():
     info008()
     info009()
     info010()
-
-
 
 if __name__ == "__main__":
     try:
