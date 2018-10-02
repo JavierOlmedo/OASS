@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from lib.colors import Colors
+import argparse
 import time
 import sys
 import re
@@ -63,8 +64,25 @@ def warning(s):
     print(Colors.BOLD + Colors.YELLOW + t() + " [!] " + s + Colors.DEFAULT)
 
 def error(s):
-    print(Colors.BOLD + Colors.RED + t() + " [-] " + s + Colors.DEFAULT)
+    print(Colors.BOLD + Colors.RED + t() + " [ERROR] " + s + Colors.DEFAULT)
 
 def default(s):
     print(Colors.BOLD + t() + " [+] " + s + Colors.DEFAULT)
 
+def parser_error(errmsg):
+    banner()
+    default("USAGE: python3 " + sys.argv[0] + " [OPTIONS] (use -h for help)")
+    error(errmsg + "\n")
+    sys.exit()
+
+def parse_args():
+    os.system("clear")
+    banner()
+    parser = argparse.ArgumentParser(epilog='\tEXAMPLE: \r\npython3 ' + sys.argv[0] + " -d google.com" + "\n")
+    parser.error = parser_error
+    parser._optionals.title = "OPTIONS"
+    parser.add_argument('-d', '--domain', help="Domain name to check OWASP Tests", required=True)
+    parser.add_argument('-v', '--verbose', help='Enable verbosity and display results in realtime', nargs='?', default=False)
+    parser.add_argument('-t', '--threads', help='Number of threads to use for tests (Default 10)', type=int, default=10)
+    parser.add_argument('-o', '--output', help='Save the results to text file')
+    return parser.parse_args()

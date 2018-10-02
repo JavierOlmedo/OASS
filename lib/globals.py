@@ -12,6 +12,6 @@ def initialize():
     IP = ""
     TARGET = ""
     OUTPUT = ""
-    HUNTERAPI = "81cce40b71b506fa245b1e213a96d3b22171d05c"
+    HUNTERAPI = ""
     SHODANAPI = ""
     CENSYSAPI = ""

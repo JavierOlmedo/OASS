@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 class Colors:
     BLUE = '\033[94m'
     CIAN = '\033[36m'
