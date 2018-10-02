@@ -3,6 +3,7 @@
 def initialize():
 
     global IP
+    global PATH
     global TARGET
     global OUTPUT
     global HUNTERAPI
@@ -10,6 +11,7 @@ def initialize():
     global CENSYSAPI
 
     IP = ""
+    PATH = ""
     TARGET = ""
     OUTPUT = ""
     HUNTERAPI = ""

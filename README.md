@@ -4,7 +4,7 @@
 
 # OWASP Automatic Scan Script
 
-> A simple tool to check OWASP test from your website.
+> A tool to check OWASP tests of your website.
 
 ## Info
 

@@ -9,7 +9,14 @@ import sys
 def main():
     args = parse_args()
     lib.globals.initialize()
-    print(args.domain)
+    lib.globals.TARGET = args.domain
+
+    if(not isValidDomain()):
+        error(lib.globals.TARGET + " is not a valid domain." + "\n")
+    else:
+        getIP()
+        checkAPIs()
+        
     #check domain
     #owasp()
 

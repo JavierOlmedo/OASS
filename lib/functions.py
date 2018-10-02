@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 
 from lib.colors import Colors
+import lib.globals
 import argparse
+import socket
 import time
 import sys
 import re
@@ -47,8 +49,8 @@ def t():
 	ctime = time.strftime('%H:%M:%S', current_time)
 	return "["+ ctime + "]"
 
-def isValidDomain(s):
-    match = re.search("^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$", s)
+def isValidDomain():
+    match = re.search("^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$", lib.globals.TARGET)
     if match:
         return True
     else:
@@ -69,10 +71,10 @@ def error(s):
 def default(s):
     print(Colors.BOLD + t() + " [+] " + s + Colors.DEFAULT)
 
-def parser_error(errmsg):
+def parser_error(s):
     banner()
     default("USAGE: python3 " + sys.argv[0] + " [OPTIONS] (use -h for help)")
-    error(errmsg + "\n")
+    error(s + "\n")
     sys.exit()
 
 def parse_args():
@@ -86,3 +88,36 @@ def parse_args():
     parser.add_argument('-t', '--threads', help='Number of threads to use for tests (Default 10)', type=int, default=10)
     parser.add_argument('-o', '--output', help='Save the results to text file')
     return parser.parse_args()
+
+def getIP():
+    try:
+        lib.globals.IP = socket.gethostbyname(lib.globals.TARGET)
+    except:
+        error("IP has not been obtained from " + lib.globals.TARGET + "\n")
+        sys.exit()
+
+def checkAPIs():
+    lib.globals.PATH = os.environ['HOME'] + "/.OASS"
+
+    if not os.path.exists(lib.globals.PATH):
+        os.makedirs(lib.globals.PATH)
+    
+    if not os.path.exists(lib.globals.PATH + "/HUNTERAPI.txt"):
+        file = open (lib.globals.PATH + "/HUNTERAPI.txt", 'w')  
+        file.close()
+
+    if not os.path.getsize(lib.globals.PATH + "/HUNTERAPI.txt") > 0:
+        hunterAPI = input("Insert your Hunter.io API: ")
+        lib.globals.HUNTERAPI = hunterAPI
+        file = open (lib.globals.PATH + "/HUNTERAPI.txt", 'w') 
+        file.write(hunterAPI)
+        file.close()
+
+    else:
+        file = open (lib.globals.PATH + "/HUNTERAPI.txt", 'r')
+        file.read() 
+        confirmHunterAPI = input ("Do you use this API " + lib.globals.HUNTERAPI)
+        #responseHunterAPI = input("Insert your Hunter.io API: ")
+    
+
+        
