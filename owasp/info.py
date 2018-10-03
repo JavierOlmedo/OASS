@@ -8,7 +8,7 @@ import re
 import os
 
 def info001():
-    info("INFO-001 Conduct search engine discovery/reconnaissance for information leakage")
+    information("INFO-001 Conduct search engine discovery/reconnaissance for information leakage")
 
     def hunterio():
         default("Find emails in Hunter.io")
@@ -50,7 +50,7 @@ def info001():
     print("\n")
 
 def info002():
-    info("INFO-002 Fingerprint Web Server")
+    information("INFO-002 Fingerprint Web Server")
 
     def whatweb():
         default("Launch command in WhatWeb")
@@ -64,33 +64,33 @@ def info002():
     print("\n")
     
 def info003():
-    info("INFO-003 Review Webserver Metafiles for Information Leakage")
+    information("INFO-003 Review Webserver Metafiles for Information Leakage")
     print("\n")
     
 def info004():
-    info("INFO-004 Enumerate Applications on Webserver")
+    information("INFO-004 Enumerate Applications on Webserver")
     print("\n")
 
 def info005():
-    info("INFO-005 Review webpage comments and metadata for information leakage")
+    information("INFO-005 Review webpage comments and metadata for information leakage")
     print("\n")
 
 def info006():
-    info("INFO-006 Identify application entry points")
+    information("INFO-006 Identify application entry points")
     print("\n")
 
 def info007():
-    info("INFO-007 Map execution paths through application")
+    information("INFO-007 Map execution paths through application")
     print("\n")
 
 def info008():
-    info("INFO-008 Fingerprint Web Application Framework")
+    information("INFO-008 Fingerprint Web Application Framework")
     print("\n")
 
 def info009():
-    info("INFO-009 Fingerprint Web Application")
+    information("INFO-009 Fingerprint Web Application")
     print("\n")
 
 def info010():
-    info("INFO-010 Map Application Architecture")
+    information("INFO-010 Map Application Architecture")
     print("\n")

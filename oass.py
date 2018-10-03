@@ -10,15 +10,14 @@ def main():
     args = parse_args()
     lib.globals.initialize()
     lib.globals.TARGET = args.domain
+    lib.globals.TESTS = args.test
 
     if(not isValidDomain()):
         error(lib.globals.TARGET + " is not a valid domain." + "\n")
     else:
         getIP()
-        checkAPIs()
-        
-    #check domain
-    #owasp()
+        #checkAPIs()
+        owasp()
 
 if __name__ == "__main__":
     try:

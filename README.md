@@ -5,6 +5,7 @@
 # OWASP Automatic Scan Script
 
 > A tool to check OWASP tests of your website.
+> https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents
 
 ## Info
 
@@ -17,6 +18,7 @@ Use OASS is very simple, you can follow the below method:
 ```
 git clone https://github.com/JavierOlmedo/OASS.git
 cd OASS
+pip3 install -r requirements.txt
 python3 oass.py -u [TARGET]
 ```
 

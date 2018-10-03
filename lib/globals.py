@@ -4,6 +4,7 @@ def initialize():
 
     global IP
     global PATH
+    global TESTS
     global TARGET
     global OUTPUT
     global HUNTERAPI
@@ -12,6 +13,7 @@ def initialize():
 
     IP = ""
     PATH = ""
+    TESTS = ""
     TARGET = ""
     OUTPUT = ""
     HUNTERAPI = ""

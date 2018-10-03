@@ -59,7 +59,7 @@ def isValidDomain():
 def success(s):
     print(Colors.BOLD + Colors.GREEN + t() + " [+] " + s + Colors.DEFAULT)
 
-def info(s):
+def information(s):
     print(Colors.BOLD + Colors.BLUE + t() + " [!] " + s + Colors.DEFAULT)
 
 def warning(s):
@@ -84,9 +84,12 @@ def parse_args():
     parser.error = parser_error
     parser._optionals.title = "OPTIONS"
     parser.add_argument('-d', '--domain', help="Domain name to check OWASP Tests", required=True)
-    parser.add_argument('-v', '--verbose', help='Enable verbosity and display results in realtime', nargs='?', default=False)
-    parser.add_argument('-t', '--threads', help='Number of threads to use for tests (Default 10)', type=int, default=10)
     parser.add_argument('-o', '--output', help='Save the results to text file')
+    parser.add_argument('-t', '--test', nargs='+', help='Tests to check info, config, crypst, etc (Default info and crypst)', default=['info','crypst'])
+    #parser.add_argument('-t', '--threads', help='Number of threads to use for tests (Default 10)', type=int, default=10)
+    parser.add_argument('-v', '--verbose', help='Enable verbosity and display results in realtime', nargs='?', default=False)
+    
+    
     return parser.parse_args()
 
 def getIP():
@@ -107,17 +110,21 @@ def checkAPIs():
         file.close()
 
     if not os.path.getsize(lib.globals.PATH + "/HUNTERAPI.txt") > 0:
-        hunterAPI = input("Insert your Hunter.io API: ")
+        hunterAPI = input(Colors.BOLD + "Insert your Hunter.io API: ")
         lib.globals.HUNTERAPI = hunterAPI
         file = open (lib.globals.PATH + "/HUNTERAPI.txt", 'w') 
         file.write(hunterAPI)
         file.close()
 
     else:
-        file = open (lib.globals.PATH + "/HUNTERAPI.txt", 'r')
-        file.read() 
-        confirmHunterAPI = input ("Do you use this API " + lib.globals.HUNTERAPI)
-        #responseHunterAPI = input("Insert your Hunter.io API: ")
-    
+        with open(lib.globals.PATH + "/HUNTERAPI.txt", 'r') as file:
+            lib.globals.HUNTERAPI = file.readline()
+            file.close()
+        confirmHunterAPI = input (Colors.BOLD + "Do you use " + Colors.YELLOW + lib.globals.HUNTERAPI + Colors.DEFAULT + Colors.BOLD + " HunterAPI? y/n: ") 
 
-        
+        if confirmHunterAPI != "y":
+            hunterAPI = input(Colors.BOLD + "Insert your Hunter.io API: ")
+            lib.globals.HUNTERAPI = hunterAPI
+            file = open (lib.globals.PATH + "/HUNTERAPI.txt", 'w') 
+            file.write(hunterAPI)
+            file.close()                 
