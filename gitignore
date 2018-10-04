@@ -8,6 +8,8 @@ __pycache__/
 # C extensions
 *.so
 
+
+
 # Distribution / packaging
 .Python
 env/
@@ -34,6 +36,7 @@ var/
 
 # Pycharm IDE files
 .idea
+.vscode
 
 # Installer logs
 pip-log.txt
@@ -133,4 +136,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-

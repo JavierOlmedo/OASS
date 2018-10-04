@@ -20,6 +20,16 @@ if(os.getuid() != 0):
     print("[!] Please execute as root: `$ sudo python3 setup.py install'")
     exit()
 
+
+
+print(platform.linux_distribution())
+
+if("Kali" not in platform.linux_distribution()):
+    print("[!] Sorry this installer is not designed for %s (only Linux and Mac)"
+        ". Please install the Python dependencies manually." % platformOS)
+    exit()
+else:
+
 platformOS = platform.system()
 if platformOS not in  ["Linux", "Darwin"]:
     print("[!] Sorry this installer is not designed for %s (only Linux and Mac)"
