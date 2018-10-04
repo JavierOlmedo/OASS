@@ -3,7 +3,9 @@
 from owasp.info import *
 from owasp.config import *
 from owasp.crypst import *
+from lib.config import *
 import lib.globals
+import subprocess
 
 def info():
     info001()
@@ -24,6 +26,8 @@ def crypst():
     crypst001()
 
 def owasp():
+    checkConfig()
+
     if("info" in lib.globals.TESTS):
         #info()
         print("info")
@@ -31,5 +35,7 @@ def owasp():
         #config()
         print("config")
     if("crypst" in lib.globals.TESTS):
-        #crypst()
-        print("crypt")
+        crypst()
+        #print("crypst")
+        #subprocess.call("sudo pip install netifaces", shell=True)
+        

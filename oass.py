@@ -3,7 +3,6 @@
 from lib.functions import *
 from owasp.owasp import *
 import lib.globals
-import socket
 import sys
 
 def main():
@@ -14,9 +13,8 @@ def main():
 
     if(not isValidDomain()):
         error(lib.globals.TARGET + " is not a valid domain." + "\n")
+        sys.exit()
     else:
-        getIP()
-        #checkAPIs()
         owasp()
 
 if __name__ == "__main__":

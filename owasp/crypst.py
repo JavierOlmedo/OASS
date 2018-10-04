@@ -10,3 +10,9 @@ import os
 def crypst001():
     information("CRYPST-001 Testing for Weak SSL/TLS Ciphers, Insufficient Transport Layer Protection")
     print("\n")
+    default("Lanzando TestSSL")
+    c = "testssl " + "https://" + lib.globals.TARGET
+    try:
+        os.system(c)
+    except:
+        error("Error lanzando")
