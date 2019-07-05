@@ -56,8 +56,7 @@ def information(s):
 def warning(s):
     print(Colors.BOLD + Colors.YELLOW + t() + " [!] " + s + Colors.DEFAULT)
 
-def error(s):
-    print(Colors.BOLD + Colors.RED + t() + " [ERROR] " + s + Colors.DEFAULT)
+
 
 def default(s):
     print(Colors.BOLD + t() + " [+] " + s + Colors.DEFAULT)
